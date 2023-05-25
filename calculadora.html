@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Calculadora Simples em JS</title>
+</head>
+<body> 
+    <h1> Digite o cálculo desejado</h1>
+    <form> 
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1" />
+
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2" />
+        
+        <label for="operacao">Operacao:</label>
+        <select id="operacao">
+            <option value="soma">Soma</option>
+            <option value="subtracao"> Subtracao</option>
+            <option value="divisao">Divisao</option>
+        </select>
+
+        <button type="submit"> Calcular</button>
+    </form>
+
+    <script>
+        const num1Input= document.getElementById("num1");
+        const num2Input =document.getElementById("num2");
+        const operacaoSelect = document.getElementById("operacao");
+
+        function calcular() {
+            const num1 = Number(num1Input.value);
+            const num2 = Number(num2Input.value);
+            const operacao = operacaoSelect.value;
+            let resultado;
+
+            if (operacao === "soma") {
+                resultado = num1 + num2;
+            } else if (operacao === "subtracao") {
+                resultado = num1 - num2;
+            }  else if (operacao === "divisao")  {
+                    resultado = num1 / num2;
+            }
+
+            alert("O resultado é: " + resultado);
+        }
+
+        const form= document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            calcular();
+        });
+    </script>
+</body>
+</html> 
+      
